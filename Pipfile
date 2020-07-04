@@ -11,6 +11,8 @@ requests = "*"
 pytest = "*"
 beautifulsoup4 = "*"
 autopep8 = "*"
+python-dotenv = "*"
+twilio = "*"
 
 [requires]
 python_version = "3.6"

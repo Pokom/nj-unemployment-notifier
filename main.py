@@ -1,6 +1,11 @@
 import requests
 import unicodedata
 from bs4 import BeautifulSoup
+from datetime import datetime
+
+import settings
+from twilio.rest import Client
+
 
 def parse_html(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -49,9 +54,18 @@ def get_ue_html(url):
     resp = requests.get(url)
     return resp.text
 
+def get_week(soup):
+    return soup.title.string.split("|")[1].split(":")[0]
+
 if __name__ == "__main__":
     html = get_ue_html(url="https://myunemployment.nj.gov/labor/myunemployment/schedule.shtml")
     soup = parse_html(html=html)
-    (day, time) = search_for_ss_number(soup, 1)
-
-    print(day, time)
+    week = get_week(soup=soup)
+    (day, time) = search_for_ss_number(soup, 7332)
+    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+    message = client.messages.create(
+        body=f"\n{week}\n{day} between {time}",
+        to=settings.TWILIO_TO_NUMBER,
+        from_=settings.TWILIO_FROM_NUMBER
+    )
+    print(message)
