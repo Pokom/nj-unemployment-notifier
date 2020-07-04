@@ -17,3 +17,14 @@ This can be broken down into four parts:
 2. Parse the HTML and date and times for Social Security Ranges
 3. Match an input Social Security number to the time
 4. Generate an alert
+
+## Running
+
+Before you can run the program, create `.env` by `cp .env.sample .env`. Be sure to fill out the [twilio](https://www.twilio.com/console) information for API keys, to and from numbers, and the
+last four digits that you're searching for.
+
+```sh
+pipenv shell;
+pipenv install;
+python main.py;
+```

@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 autopep8 = "*"
+pylint = "*"
 
 [packages]
 requests = "*"
@@ -15,4 +16,4 @@ python-dotenv = "*"
 twilio = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
