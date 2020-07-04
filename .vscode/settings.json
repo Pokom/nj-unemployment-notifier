@@ -1,0 +1,12 @@
+{
+  "python.pythonPath": "C:\\Users\\mpoko\\.virtualenvs\\nj-unemployment-notifier-dVf7mU9j\\Scripts\\python.exe",
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true
+}
