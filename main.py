@@ -48,14 +48,6 @@ def search_for_ss_number(soup, ss_number):
                         return (day_string, time)
     return (-1, -1)
 
-
-def test_search_for_ss_number():
-    with open('schedule.shtml') as html:
-        soup = parse_html(html)
-        (day, time) = search_for_ss_number(soup, 7332)
-        assert day == 0
-
-
 def get_ue_html(url):
     resp = requests.get(url)
     return resp.text
